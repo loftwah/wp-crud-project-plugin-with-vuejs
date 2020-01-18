@@ -6,14 +6,14 @@
  * Time: 11:23
  */
 
-namespace PluginName\Classes;
+namespace CrudProject\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 /**
- * Register and initialize custom post type for plugun_name
+ * Register and initialize custom post type for crud_project
  * @since 1.0.0
  */
 
@@ -30,7 +30,7 @@ class PostType {
             'public'          => false,
             'show_ui'         => false,
         );
-        register_post_type( 'plugun_name', $args );
+        register_post_type( 'crud_project', $args );
     }
 
 }

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 include 'global_functions.php';
-if ( ! function_exists( 'PluginNameAutoload' ) ) {
+if ( ! function_exists( 'CrudProjectAutoload' ) ) {
     /**
      * Plugin autoloader.
      *
@@ -21,10 +21,10 @@ if ( ! function_exists( 'PluginNameAutoload' ) ) {
      *
      * @param $class
      */
-    function PluginNameAutoload( $class ) {
+    function CrudProjectAutoload( $class ) {
 
         // Do not load unless in plugin domain.
-        $namespace = 'PluginName';
+        $namespace = 'CrudProject';
         if ( strpos( $class, $namespace ) !== 0 ) {
             return;
         }
@@ -43,5 +43,5 @@ if ( ! function_exists( 'PluginNameAutoload' ) ) {
         }
     }
     // Register the autoloader.
-    spl_autoload_register( 'PluginNameAutoload' );
+    spl_autoload_register( 'CrudProjectAutoload' );
 }

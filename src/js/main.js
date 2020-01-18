@@ -1,29 +1,29 @@
-window.PluginNameBus = new window.PluginName.Vue();
+window.CrudProjectBus = new window.CrudProject.Vue();
 
-window.PluginName.Vue.mixin({
+window.CrudProject.Vue.mixin({
     methods: {
-        applyFilters: window.PluginName.applyFilters,
-        addFilter: window.PluginName.addFilter,
-        addAction: window.PluginName.addFilter,
-        doAction: window.PluginName.doAction,
-        $get: window.PluginName.$get,
-        $adminGet: window.PluginName.$adminGet,
-        $adminPost: window.PluginName.$adminPost,
-        $post: window.PluginName.$post
+        applyFilters: window.CrudProject.applyFilters,
+        addFilter: window.CrudProject.addFilter,
+        addAction: window.CrudProject.addFilter,
+        doAction: window.CrudProject.doAction,
+        $get: window.CrudProject.$get,
+        $adminGet: window.CrudProject.$adminGet,
+        $adminPost: window.CrudProject.$adminPost,
+        $post: window.CrudProject.$post
     }
 });
 
 import {routes} from './routes'
 
-const router = new window.PluginName.Router({
-    routes: window.PluginName.applyFilters('pluginName_global_vue_routes', routes),
+const router = new window.CrudProject.Router({
+    routes: window.CrudProject.applyFilters('CrudProject_global_vue_routes', routes),
     linkActiveClass: 'active'
 });
 
 import App from './AdminApp'
 
-new window.PluginName.Vue({
-    el: '#plugin_name_app',
+new window.CrudProject.Vue({
+    el: '#crud_project_app',
     render: h => h(App),
     router: router
 });

@@ -1,3 +1,3 @@
-import PluginName from './plugin-name';
+import CrudProject from './crud_project';
 
-window.PluginName = new PluginName();
+window.CrudProject = new CrudProject();

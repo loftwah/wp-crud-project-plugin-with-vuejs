@@ -18,11 +18,11 @@
 
 * Open with an IDE (Vscode, sublime, PhpStorm etc)
 
-* Change all the   `plugin-name` to Your-Plugin-Name 
-* Change all the   `PLUGINNAME`  to YOURPLUGINNAME    (Upper case)
-* Change all the   `PluginName`  to YourPluginName    (Upper Camel Case)
-* Change all the   `Plugin_Name` to your_plugin_name
-* Change all the   `textdomain`  to yourtextdomain
+* Change all the   `crud_project` to Your-Plugin-Name 
+* Change all the   `CRUDPROJECT`  to YOURCRUDPROJECT    (Upper case)
+* Change all the   `CrudProject`  to YourCrudProject    (Upper Camel Case)
+* Change all the   `Crud_Project` to your_crud_project
+* Change all the   `crud_project`  to yourcrud_project
 
 
 ## All done have fun

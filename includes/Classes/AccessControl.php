@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginName\Classes;
+namespace CrudProject\Classes;
 
 
 class AccessControl
@@ -9,8 +9,8 @@ class AccessControl
     {
         $menuPermissions = array(
             'manage_options',
-            'plugin_name_full_access',
-            'plugin_name_can_view_menus'
+            'crud_project_full_access',
+            'crud_project_can_view_menus'
         );
         foreach ($menuPermissions as $menuPermission) {
             if (current_user_can($menuPermission)) {

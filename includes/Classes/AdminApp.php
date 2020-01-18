@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PluginName\Classes;
+namespace CrudProject\Classes;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -15,6 +15,6 @@ class AdminApp
 {
     public function bootView()
     {
-        echo "<div id='plugin_name_app'></div>";
+        echo "<div id='crud_project_app'></div>";
     }
 }

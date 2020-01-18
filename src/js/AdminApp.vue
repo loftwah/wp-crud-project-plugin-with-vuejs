@@ -1,6 +1,6 @@
 <template>
-    <div id="plugin_name_app">
-        <div class="plugin_name_main_nav">
+    <div id="crud_project_app">
+        <div class="crud_project_main_nav">
             <div class="topnav">
                 <router-link v-for="menuItem in topMenus" :key="menuItem.route" active-class="ninja-tab-active" exact :class="['ninja-tab']" :to="{ name: menuItem.route }">
                     {{ menuItem.title }}
@@ -22,7 +22,16 @@
       },
       methods: {
           setTopmenu() {
-              this.topMenus = this.applyFilters('plugin_name_top_level_menu', [
+              this.topMenus = this.applyFilters('crud_project_top_level_menu', [
+                  {
+                      route: 'all_posts',
+                      title: 'AllPosts' 
+                  },
+                  {
+                      route: 'add_new_post',
+                      title: 'AddNewPost' 
+                  },
+                  
                   {
                       route: 'dashboard',
                       title: 'Dashboard'
@@ -35,6 +44,7 @@
                       route: 'supports',
                       title: 'Supports'
                   }
+
               ])
           }
       },
@@ -73,6 +83,9 @@
     .topnav a.ninja-tab-active {
         color: #ffa92c;
         border-bottom: 2px solid #ffa92c;
+    }
+    .crud_project_main_nav{
+        margin: 0 0 0 -20px;
     }
 
 </style>

@@ -1,5 +1,5 @@
 <?php 
-namespace PluginName\Classes;
+namespace CrudProject\Classes;
 
 class HelperClass {
 	

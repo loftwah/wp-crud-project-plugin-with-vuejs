@@ -1,14 +1,14 @@
 <?php
 
 /*
-Plugin Name: plugin-name
+Plugin Name: CRUD Project
 Plugin URI: #
 Description: A WordPress boilerplate plugin with Vue js.
 Version: 1.0.0
 Author: #
 Author URI: #
-License: A "Slug" license name e.g. GPL2
-Text Domain: textdomain
+License: GPLv2 or later
+Text Domain: crud_project
 */
 
 
@@ -32,15 +32,15 @@ Text Domain: textdomain
 if (!defined('ABSPATH')) {
     exit;
 }
-if (!defined('PLUGINNAME_VERSION')) {
-    define('PLUGINNAME_VERSION_LITE', true);
-    define('PLUGINNAME_VERSION', '1.1.0');
-    define('PLUGINNAME_MAIN_FILE', __FILE__);
-    define('PLUGINNAME_URL', plugin_dir_url(__FILE__));
-    define('PLUGINNAME_DIR', plugin_dir_path(__FILE__));
-    define('PLUGINNAME_UPLOAD_DIR', '/plugun_name');
+if (!defined('CRUDPROJECT_VERSION')) {
+    define('CRUDPROJECT_VERSION_LITE', true);
+    define('CRUDPROJECT_VERSION', '1.1.0');
+    define('CRUDPROJECT_MAIN_FILE', __FILE__);
+    define('CRUDPROJECT_URL', plugin_dir_url(__FILE__));
+    define('CRUDPROJECT_DIR', plugin_dir_path(__FILE__));
+    define('CRUDPROJECT_UPLOAD_DIR', '/crud_project');
 
-    class PluginName
+    class CrudProject
     {
         public function boot()
         {
@@ -51,41 +51,46 @@ if (!defined('PLUGINNAME_VERSION')) {
 
         public function adminHooks()
         {
-            require PLUGINNAME_DIR.'includes/autoload.php';
+            require CRUDPROJECT_DIR.'includes/autoload.php';
 
             //Register Admin menu
-            $menu = new \PluginName\Classes\Menu();
+            $menu = new \CrudProject\Classes\Menu();
             $menu->register();
 
-            add_action('plugun_name/render_admin_app', function () {
-                $adminApp = new \PluginName\Classes\AdminApp();
+            // Menu page callback function load
+            add_action('crud_project/render_admin_app', function () {
+                $adminApp = new \CrudProject\Classes\AdminApp();
                 $adminApp->bootView();
             });
 
+            // load AdminAjaxHandler
+            $ajaxHandler = new \CrudProject\Classes\AdminAjaxHandler();
+            $ajaxHandler->registerEndpoints();
+
           
             wp_enqueue_script(
-                'plugin_name_vue_loaded',
-                PLUGINNAME_URL . 'assets/js/boot.js',
+                'crud_project_vue_loaded',
+                CRUDPROJECT_URL . 'assets/js/boot.js',
                 array( 'jquery' ),
-                PLUGINNAME_VERSION,
+                CRUDPROJECT_VERSION,
                 true
             );
         }
 
         public function textDomain()
         {
-            load_plugin_textdomain('plugun_name', false, basename(dirname(__FILE__)) . '/languages');
+            load_plugin_crud_project('crud_project', false, basename(dirname(__FILE__)) . '/languages');
         }
 
     }
 
     add_action('plugins_loaded', function () {
-        (new PluginName())->boot();
+        (new CrudProject())->boot();
     });
 
     register_activation_hook(__FILE__, function ($newWorkWide) {
-        require_once(PLUGINNAME_DIR . 'includes/Classes/Activator.php');
-        $activator = new \PluginName\Classes\Activator();
+        require_once(CRUDPROJECT_DIR . 'includes/Classes/Activator.php');
+        $activator = new \CrudProject\Classes\Activator();
         $activator->migrateDatabases($newWorkWide);
     });
 
