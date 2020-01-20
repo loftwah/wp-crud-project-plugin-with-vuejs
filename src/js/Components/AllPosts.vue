@@ -43,10 +43,33 @@
             </el-table-column>
             <el-table-column label="ShortCode">
                 <template slot-scope="scope"> 
-                    <code class="shortcode">
-                        [crud_project_post id="{{ scope.row.ID }}"]
-                    </code>      
+                    <el-tooltip effect="dark"
+                                content="Click to copy shortcode"
+                                title="Click to copy shortcode"
+                                placement="top">
+                        <code class="shortcode"
+                                :data-clipboard-text='`[crud_project_post id="${scope.row.ID}"]`'>
+                            <i class="el-icon-document"></i> [crud_project_post id="{{ scope.row.ID }}"]
+                        </code>
+                    </el-tooltip>
                 </template>
+
+
+                <!-- <el-table-column width="250" :label="$t('ShortCode')">
+                        <template slot-scope="scope">
+                            <el-tooltip effect="dark"
+                                        content="Click to copy shortcode"
+                                        title="Click to copy shortcode"
+                                        placement="top">
+                                <code class="copy"
+                                      :data-clipboard-text='`[wppayform id="${scope.row.ID}"]`'>
+                                    <i class="el-icon-document"></i> [wppayform id="{{ scope.row.ID }}"]
+                                </code>
+                            </el-tooltip>
+                        </template>
+                    </el-table-column> -->
+
+
             </el-table-column>
 
             <el-table-column prop="date" label="Date"> 
@@ -108,6 +131,8 @@
 
 
 <script>
+  import Clipboard from 'clipboard';
+
   export default {
     name:'AddNewPosts',
 
@@ -197,8 +222,15 @@
     },
 
     mounted() {
-        console.log(this.search);
         this.fetchPosts();
+
+        var clipboard = new Clipboard('.shortcode');
+        clipboard.on('success', (e) => {
+            this.$message({
+                message: 'Copied to Clipboard!',
+                type: 'success'
+            });
+        });
     }
 
 
@@ -236,5 +268,9 @@
 }
 .allposts-wraper{
     margin: 0 20px 0 0;
+}
+
+.shortcode{
+    cursor: context-menu;
 }
 </style>
