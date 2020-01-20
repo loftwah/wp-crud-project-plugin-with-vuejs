@@ -3,7 +3,7 @@
 
         <div class="crud-project-header"> 
             <div class="title">
-                <h1> All Posts  {{search}} </h1>
+                <h1> All Posts </h1>
             </div>
 
             <div class="crud-project-action">
@@ -120,6 +120,8 @@
         search: '',
         total: 0,
         pageSizes: [10, 20, 30, 40, 50, 100, 200],
+        per_page: 10,
+        page_number: 1,
 
         // pagination
         currentPage1: 5,
@@ -135,15 +137,14 @@
         fetchPosts() {
             this.$adminGet({ 
                 route: 'get_posts',
-                per_page: 10,
-                page_number: 3,
+                per_page: this.per_page,
+                page_number: this.page_number,
                 search: this.search
             })
             .then(response => {
-                
                 this.tableData = response.data.posts;
                 this.total     = response.data.total; 
-                console.log(this.tableData);
+                console.log(response.data);
             })
             .fail(error => {
                 console.log(error);
@@ -184,9 +185,13 @@
 
         // pagination
         handleSizeChange(val) {
+            this.per_page = val;
+            this.fetchPosts();
             console.log(`${val} items per page`);
         },
         handleCurrentChange(val) {
+            this.page_number = val;
+            this.fetchPosts();
             console.log(`current page: ${val}`);
         }
     },

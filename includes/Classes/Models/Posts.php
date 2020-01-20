@@ -19,30 +19,57 @@ class Posts
     // get posts on database
     public static function getPostsDB($args = array())
     {
-     
+        $whereArgs = array(
+            'post_type'   => 'post',
+            'post_status' => 'publish'
+        );
+
+        $whereArgs = apply_filters('crudproject/all_posts_where_args', $whereArgs);
+
         $postsQuery = CRUDProjectFormDB()->table('posts')
             ->orderBy('ID', 'DESC')
-            ->limit($args['posts_per_page'])
-            // ->offset($args['offset'])
-            ->where('post_type', 'post')
-            ->where('post_status', 'publish');
-           
-            if (!empty($args['s'])) {
-                $postsQuery->where(function ($q) use ($args) {
-                    $q->where('post_title', 'LIKE', "%{$args['s']}%");
-                    $q->orwhere('post_content', 'LIKE', "%{$args['s']}%");
-                    $q->orWhere('ID', 'LIKE', "%{$args['s']}%");
-                });
-            }
+            ->offset($args['offset'])
+            ->limit($args['posts_per_page']);
+
+        foreach ($whereArgs as $key => $where) {
+            $postsQuery->where($key, $where);
+        }
+
+        if (!empty($args['s'])) {
+            $postsQuery->where(function ($q) use ($args) {
+                $q->where('post_title', 'LIKE', "%{$args['s']}%");
+                $q->orwhere('post_content', 'LIKE', "%{$args['s']}%");
+                $q->orWhere('ID', 'LIKE', "%{$args['s']}%");
+            });
+        }
 
         $posts =  $postsQuery->get();
         $total = $postsQuery->count();
        
+
+        // $submissionModel = new Submission();
+
+        // foreach ($forms as $form) {
+        //     $form->preview_url = site_url('?wp_paymentform_preview=' . $form->ID);
+        //     if (in_array('entries_count', $with)) {
+        //         $form->entries_count = $submissionModel->getEntryCountByPaymentStatus($form->ID);
+        //     }
+        // }
+
+        $posts = apply_filters('crudproject/get_all_posts', $posts);
+
+        $lastPage = ceil($total / $args['posts_per_page']);
+
         return array(
-            'posts' => $posts,
-            'total' => $total
+            'posts'     => $posts,
+            'total'     => $total,
+            'last_page' => $lastPage
         );
     }
+
+
+
+
 
 
     // post create

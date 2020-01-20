@@ -541,6 +541,8 @@ __webpack_require__.r(__webpack_exports__);
       search: '',
       total: 0,
       pageSizes: [10, 20, 30, 40, 50, 100, 200],
+      per_page: 10,
+      page_number: 1,
       // pagination
       currentPage1: 5,
       currentPage2: 5,
@@ -554,13 +556,13 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$adminGet({
         route: 'get_posts',
-        per_page: 10,
-        page_number: 3,
+        per_page: this.per_page,
+        page_number: this.page_number,
         search: this.search
       }).then(function (response) {
         _this.tableData = response.data.posts;
         _this.total = response.data.total;
-        console.log(_this.tableData);
+        console.log(response.data);
       }).fail(function (error) {
         console.log(error); // this.$showAjaxError(error);
       });
@@ -595,9 +597,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     // pagination
     handleSizeChange: function handleSizeChange(val) {
+      this.per_page = val;
+      this.fetchPosts();
       console.log("".concat(val, " items per page"));
     },
     handleCurrentChange: function handleCurrentChange(val) {
+      this.page_number = val;
+      this.fetchPosts();
       console.log("current page: ".concat(val));
     }
   },
@@ -1855,9 +1861,7 @@ var render = function() {
     { staticClass: "allposts-wraper" },
     [
       _c("div", { staticClass: "crud-project-header" }, [
-        _c("div", { staticClass: "title" }, [
-          _c("h1", [_vm._v(" All Posts  " + _vm._s(_vm.search) + " ")])
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "crud-project-action" }, [
           _c(
@@ -2174,7 +2178,16 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title" }, [
+      _c("h1", [_vm._v(" All Posts ")])
+    ])
+  }
+]
 render._withStripped = true
 
 
