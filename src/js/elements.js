@@ -134,9 +134,4 @@ import 'element-ui/lib/theme-chalk/dialog.css';
 import 'element-ui/lib/theme-chalk/pagination.css';
 import 'element-ui/lib/theme-chalk/tooltip.css';
 
-
-
-
-
-
 export default Vue;

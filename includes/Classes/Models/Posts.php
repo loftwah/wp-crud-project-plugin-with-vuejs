@@ -2,16 +2,13 @@
 
 namespace CrudProject\Classes\Models; 
 
-// use WPPayForm\Classes\Entry\Entry;
-// use WPPayForm\Classes\GeneralSettings;
-// use WPPayForm\Classes\ArrayHelper;
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
 /**
- * Ajax Handler Class
+ * Posts Class
  * @since 1.0.0
  */
 class Posts
@@ -46,15 +43,10 @@ class Posts
         $posts =  $postsQuery->get();
         $total = $postsQuery->count();
        
-
-        // $submissionModel = new Submission();
-
-        // foreach ($forms as $form) {
-        //     $form->preview_url = site_url('?wp_paymentform_preview=' . $form->ID);
-        //     if (in_array('entries_count', $with)) {
-        //         $form->entries_count = $submissionModel->getEntryCountByPaymentStatus($form->ID);
-        //     }
-        // }
+        // frontend Preview link
+        foreach ($posts as $post) {
+            $post->preview_url = site_url('?wp_crudproject_preview=' . $post->ID);
+        }
 
         $posts = apply_filters('crudproject/get_all_posts', $posts);
 
@@ -66,11 +58,6 @@ class Posts
             'last_page' => $lastPage
         );
     }
-
-
-
-
-
 
     // post create
     public static function createPostDB($data)
@@ -87,8 +74,25 @@ class Posts
     public static function EditPostDB($editPostID)
     {
         $post = get_post($editPostID, 'OBJECT');
+        $post->post_content = wp_strip_all_tags($post->post_content);
+        $post->preview_url = site_url('?wp_crudproject_preview=' . $post->ID);
         return $post;
     }
+
+
+    // frontend Preview
+    public static function getPostDB($postId)
+    {
+       $post = get_post($postId, 'OBJECT');
+       
+        if (!$post || $post->post_type != 'post') {
+            return false;
+        }
+        $post->preview_url = site_url('?wp_crudproject_preview=' . $post->ID);
+        return $post;
+    }
+
+
 
     // Update Post
     public static function updatePostDB($postId, $data)

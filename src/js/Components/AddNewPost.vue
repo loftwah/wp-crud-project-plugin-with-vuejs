@@ -1,25 +1,20 @@
 <template>
    <div class="crud-project_editpost">
-
         <div class="header">
             <h1> Add New Post </h1>
         </div>
-
-
-        <el-row :gutter="20">
-            <el-col :span="19">
+        <el-row>
+            <el-col :span="19" style="margin-right:40px">
                 <el-input type="text" v-model="post_title"></el-input> <br/><br/>
                 <el-input type="textarea" :rows="20" v-model="post_content"> </el-input>
             </el-col>
-             <el-col :span="4">
-                 <div class="publish-options"> 
+            <el-col :span="4">
+                    <div class="publish-options"> 
                       <el-button type="success" @click="createPost()"> Publish </el-button>
                       <el-button type="primary"> Preview </el-button>
-                 </div>
-
-                 <div class="categories-options"> 
+                    </div>
+                    <div class="categories-options"> 
                       <el-divider>  <h3>Category </h3> </el-divider>
-                     
                         <el-checkbox-group v-model="checkList">
                             <el-checkbox label="Option A"></el-checkbox>
                             <el-checkbox label="Option B"></el-checkbox>
@@ -30,15 +25,9 @@
                             <el-checkbox label="Option G"></el-checkbox>
                             <el-checkbox label="Option H"></el-checkbox>
                         </el-checkbox-group>
-                 </div>
-
-
-
-             </el-col>
+                    </div>
+            </el-col>
         </el-row>
-
-
-
     </div>
 </template>
 
@@ -55,9 +44,7 @@ export default {
         }
     },
 
-
     methods: {
-
         createPost(){
             this.$adminPost({
                 route: "create_post",
@@ -77,29 +64,17 @@ export default {
                 console.log(error);
             })
         }
-
-
-    },
-
-
-
+    }
 
 }
 </script>
 
 
 <style scoped>
-    
-    .heade{
-        background: #ffff;
-        padding: 10px 20px;
-        margin-left: -20px;
-        margin-right: -20px;;
-    }
-   .publish-options {
+    .publish-options {
         background: #ffff;
         padding: 10px 10px 10px 30px;
-   }
+    }
    .categories-options{
        background: #ffff;
        margin-top: 30px;

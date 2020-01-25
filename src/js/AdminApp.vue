@@ -2,11 +2,13 @@
     <div id="crud_project_app">
         <div class="crud_project_main_nav">
             <div class="topnav">
+                <router-link to="/">
+                    CRUD PROJECT
+                </router-link>
                 <router-link v-for="menuItem in topMenus" :key="menuItem.route" active-class="ninja-tab-active" exact :class="['ninja-tab']" :to="{ name: menuItem.route }">
                     {{ menuItem.title }}
                 </router-link>
             </div>
-
         </div>
        <router-view></router-view>
     </div>
@@ -32,18 +34,18 @@
                       title: 'AddNewPost' 
                   },
                   
-                  {
-                      route: 'dashboard',
-                      title: 'Dashboard'
-                  },
-                  {
-                      route: 'settings',
-                      title: 'Settings'
-                  },
-                  {
-                      route: 'supports',
-                      title: 'Supports'
-                  }
+                //   {
+                //       route: 'dashboard',
+                //       title: 'Dashboard'
+                //   },
+                //   {
+                //       route: 'settings',
+                //       title: 'Settings'
+                //   },
+                //   {
+                //       route: 'supports',
+                //       title: 'Supports'
+                //   }
 
               ])
           }
@@ -60,7 +62,6 @@
         border-top: 1px solid #32373c2b;
         border-bottom: 1px solid #32373c2b;
         width: 100%;
-        /* margin-left: -20px; */
     }
     .update-nag {
         display: none;

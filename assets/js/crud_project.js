@@ -109,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdminApp',
   data: function data() {
@@ -124,16 +126,19 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         route: 'add_new_post',
         title: 'AddNewPost'
-      }, {
-        route: 'dashboard',
-        title: 'Dashboard'
-      }, {
-        route: 'settings',
-        title: 'Settings'
-      }, {
-        route: 'supports',
-        title: 'Supports'
-      }]);
+      } //   {
+      //       route: 'dashboard',
+      //       title: 'Dashboard'
+      //   },
+      //   {
+      //       route: 'settings',
+      //       title: 'Settings'
+      //   },
+      //   {
+      //       route: 'supports',
+      //       title: 'Supports'
+      //   }
+      ]);
     }
   },
   mounted: function mounted() {
@@ -152,17 +157,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -267,16 +261,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -527,34 +511,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AddNewPosts',
@@ -568,12 +524,7 @@ __webpack_require__.r(__webpack_exports__);
       total: 0,
       pageSizes: [10, 20, 30, 40, 50, 100, 200],
       per_page: 10,
-      page_number: 1,
-      // pagination
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4
+      page_number: 1
     };
   },
   methods: {
@@ -588,7 +539,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.tableData = response.data.posts;
         _this.total = response.data.total;
-        console.log(response.data);
       }).fail(function (error) {
         console.log(error); // this.$showAjaxError(error);
       });
@@ -602,7 +552,6 @@ __webpack_require__.r(__webpack_exports__);
     deletePost: function deletePost(id) {
       var _this2 = this;
 
-      console.log(id);
       this.$adminPost({
         route: "delete_post",
         post_id: id
@@ -1644,7 +1593,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.topnav {\n    background-color: #fff;\n    overflow: hidden;\n    border-top: 1px solid #32373c2b;\n    border-bottom: 1px solid #32373c2b;\n    width: 100%;\n    /* margin-left: -20px; */\n}\n.update-nag {\n    display: none;\n}\n/* Style the links inside the navigation bar */\n.topnav a {\n    float: left;\n    color: black;\n    text-align: center;\n    padding: 14px 16px;\n    text-decoration: none;\n    font-size: 17px;\n}\n/* Change the color of links on hover */\n.topnav a:hover {\n    background-color: #ddd;\n    color: black;\n}\n/* Add a color to the active/current link */\n.topnav a.ninja-tab-active {\n    color: #ffa92c;\n    border-bottom: 2px solid #ffa92c;\n}\n.crud_project_main_nav{\n    margin: 0 0 0 -20px;\n}\n\n", ""]);
+exports.push([module.i, "\n.topnav {\n    background-color: #fff;\n    overflow: hidden;\n    border-top: 1px solid #32373c2b;\n    border-bottom: 1px solid #32373c2b;\n    width: 100%;\n}\n.update-nag {\n    display: none;\n}\n/* Style the links inside the navigation bar */\n.topnav a {\n    float: left;\n    color: black;\n    text-align: center;\n    padding: 14px 16px;\n    text-decoration: none;\n    font-size: 17px;\n}\n/* Change the color of links on hover */\n.topnav a:hover {\n    background-color: #ddd;\n    color: black;\n}\n/* Add a color to the active/current link */\n.topnav a.ninja-tab-active {\n    color: #ffa92c;\n    border-bottom: 2px solid #ffa92c;\n}\n.crud_project_main_nav{\n    margin: 0 0 0 -20px;\n}\n\n", ""]);
 
 // exports
 
@@ -1663,7 +1612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.heade[data-v-ff229eaa]{\n     background: #ffff;\n     padding: 10px 20px;\n     margin-left: -20px;\n     margin-right: -20px;\n}\n.publish-options[data-v-ff229eaa] {\n     background: #ffff;\n     padding: 10px 10px 10px 30px;\n}\n.categories-options[data-v-ff229eaa]{\n    background: #ffff;\n    margin-top: 30px;\n    padding: 10px\n}\n\n", ""]);
+exports.push([module.i, "\n.publish-options[data-v-ff229eaa] {\n     background: #ffff;\n     padding: 10px 10px 10px 30px;\n}\n.categories-options[data-v-ff229eaa]{\n    background: #ffff;\n    margin-top: 30px;\n    padding: 10px\n}\n\n", ""]);
 
 // exports
 
@@ -1682,7 +1631,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.heade[data-v-31eaef76]{\n     background: #ffff;\n     padding: 10px 20px;\n     margin-left: -20px;\n     margin-right: -20px;\n}\n.publish-options[data-v-31eaef76] {\n     background: #ffff;\n     padding: 10px 10px 10px 30px;\n}\n.categories-options[data-v-31eaef76]{\n    background: #ffff;\n    margin-top: 30px;\n    padding: 10px\n}\n\n", ""]);
+exports.push([module.i, "\n.publish-options[data-v-31eaef76] {\n     background: #ffff;\n     padding: 10px 10px 10px 30px;\n}\n.crud-preview[data-v-31eaef76]{\n    margin-left: 10px;\n}\n.categories-options[data-v-31eaef76]{\n    background: #ffff;\n    margin-top: 30px;\n    padding: 10px\n}\n\n", ""]);
 
 // exports
 
@@ -2447,28 +2396,34 @@ var render = function() {
         _c(
           "div",
           { staticClass: "topnav" },
-          _vm._l(_vm.topMenus, function(menuItem) {
-            return _c(
-              "router-link",
-              {
-                key: menuItem.route,
-                class: ["ninja-tab"],
-                attrs: {
-                  "active-class": "ninja-tab-active",
-                  exact: "",
-                  to: { name: menuItem.route }
-                }
-              },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(menuItem.title) +
-                    "\n            "
-                )
-              ]
-            )
-          }),
-          1
+          [
+            _c("router-link", { attrs: { to: "/" } }, [
+              _vm._v("\n                CRUD PROJECT\n            ")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.topMenus, function(menuItem) {
+              return _c(
+                "router-link",
+                {
+                  key: menuItem.route,
+                  class: ["ninja-tab"],
+                  attrs: {
+                    "active-class": "ninja-tab-active",
+                    exact: "",
+                    to: { name: menuItem.route }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(menuItem.title) +
+                      "\n            "
+                  )
+                ]
+              )
+            })
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -2507,11 +2462,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "el-row",
-        { attrs: { gutter: 20 } },
         [
           _c(
             "el-col",
-            { attrs: { span: 19 } },
+            { staticStyle: { "margin-right": "40px" }, attrs: { span: 19 } },
             [
               _c("el-input", {
                 attrs: { type: "text" },
@@ -2679,17 +2633,14 @@ var render = function() {
     "div",
     { staticClass: "crud-project_editpost" },
     [
-      _c("div", { staticClass: "header" }, [
-        _c("h1", [_vm._v(" Edit Post " + _vm._s(_vm.$route.params.id) + "  ")])
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "el-row",
-        { attrs: { gutter: 20 } },
         [
           _c(
             "el-col",
-            { attrs: { span: 19 } },
+            { staticStyle: { "margin-right": "40px" }, attrs: { span: 19 } },
             [
               _c("el-input", {
                 attrs: { type: "text" },
@@ -2734,12 +2685,22 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(" update ")]
+                  [_vm._v(" Update ")]
                 ),
                 _vm._v(" "),
-                _c("el-button", { attrs: { type: "primary" } }, [
-                  _vm._v(" Preview ")
-                ])
+                _c(
+                  "a",
+                  {
+                    staticClass: "crud-preview",
+                    attrs: { href: _vm.post.preview_url, target: "_blank" }
+                  },
+                  [
+                    _c("el-button", { attrs: { type: "primary" } }, [
+                      _vm._v(" Preview ")
+                    ])
+                  ],
+                  1
+                )
               ],
               1
             ),
@@ -2748,6 +2709,8 @@ var render = function() {
               "div",
               { staticClass: "categories-options" },
               [
+                _c("el-divider", [_c("h3", [_vm._v("Category ")])]),
+                _vm._v(" "),
                 _c(
                   "el-checkbox-group",
                   {
@@ -2789,7 +2752,16 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "header" }, [
+      _c("h1", [_vm._v(" Edit Post ")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3091,13 +3063,14 @@ var render = function() {
                       [_c("i", { staticClass: "el-icon-edit" })]
                     ),
                     _vm._v(" "),
-                    _c("el-button", {
-                      attrs: {
-                        type: "success",
-                        icon: "el-icon-edit",
-                        circle: ""
-                      }
-                    }),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "el-button el-button--success is-circle",
+                        attrs: { href: scope.row.preview_url, target: "_blank" }
+                      },
+                      [_c("i", { staticClass: "el-icon-edit" })]
+                    ),
                     _vm._v(" "),
                     _c("el-button", {
                       attrs: {
@@ -3971,19 +3944,22 @@ var routes = [{
   path: "/edit_Post/:id",
   name: "edit_post",
   component: _Components_EditPost__WEBPACK_IMPORTED_MODULE_4__["default"]
-}, {
-  path: '/dashboard',
-  name: 'dashboard',
-  component: _Components_Dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]
-}, {
-  path: '/settings',
-  name: 'settings',
-  component: _Components_Settings__WEBPACK_IMPORTED_MODULE_1__["default"]
-}, {
-  path: '/supports',
-  name: 'supports',
-  component: _Components_Supports__WEBPACK_IMPORTED_MODULE_2__["default"]
-}];
+} // {
+//     path: '/dashboard',
+//     name: 'dashboard',
+//     component: Dashboard
+// },
+// {
+//     path: '/settings',
+//     name: 'settings',
+//     component: Settings
+// },
+// {
+//     path: '/supports',
+//     name: 'supports',
+//     component: Supports
+// },
+];
 
 /***/ }),
 

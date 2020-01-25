@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Ajax Handler Class
+ * Activator Class
  * @since 1.0.0
  */
 class Activator

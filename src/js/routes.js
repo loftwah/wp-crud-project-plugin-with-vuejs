@@ -6,9 +6,6 @@ import AllPosts from './Components/allPosts';
 import EditPost from './Components/EditPost';
 import AddNewPost from './Components/AddNewPost';
 
-
-
-
 export const routes = [
     {
         path: "/",
@@ -29,20 +26,20 @@ export const routes = [
     },
 
    
-    {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: Dashboard
-    },
-    {
-        path: '/settings',
-        name: 'settings',
-        component: Settings
-    },
-    {
-        path: '/supports',
-        name: 'supports',
-        component: Supports
-    },
+    // {
+    //     path: '/dashboard',
+    //     name: 'dashboard',
+    //     component: Dashboard
+    // },
+    // {
+    //     path: '/settings',
+    //     name: 'settings',
+    //     component: Settings
+    // },
+    // {
+    //     path: '/supports',
+    //     name: 'supports',
+    //     component: Supports
+    // },
 
 ];

@@ -32,6 +32,7 @@ Text Domain: crud_project
 if (!defined('ABSPATH')) {
     exit;
 }
+
 if (!defined('CRUDPROJECT_VERSION')) {
     define('CRUDPROJECT_VERSION_LITE', true);
     define('CRUDPROJECT_VERSION', '1.1.0');
@@ -40,6 +41,7 @@ if (!defined('CRUDPROJECT_VERSION')) {
     define('CRUDPROJECT_DIR', plugin_dir_path(__FILE__));
     define('CRUDPROJECT_UPLOAD_DIR', '/crud_project');
 
+require CRUDPROJECT_DIR.'includes/autoload.php';
     class CrudProject
     {
         public function boot()
@@ -47,12 +49,14 @@ if (!defined('CRUDPROJECT_VERSION')) {
             if (is_admin()) {
                 $this->adminHooks();
             }
+            $this->textDomain();
+            $this->commonActions();
+
+           $this->registerShortcodes();
         }
 
         public function adminHooks()
         {
-            require CRUDPROJECT_DIR.'includes/autoload.php';
-
             //Register Admin menu
             $menu = new \CrudProject\Classes\Menu();
             $menu->register();
@@ -79,9 +83,37 @@ if (!defined('CRUDPROJECT_VERSION')) {
 
         public function textDomain()
         {
-            load_plugin_crud_project('crud_project', false, basename(dirname(__FILE__)) . '/languages');
+            load_plugin_textdomain('crud_project', false, basename(dirname(__FILE__)) . '/languages');
         }
 
+
+        public function commonActions()
+        {   
+            // Handle Extorior Pages
+            add_action('init', function () {
+                $demoPage = new \CrudProject\Classes\Extorior\ProcessDemoPage();
+                $demoPage->handleExteriorPages();
+            });
+        }
+
+        // shortcode register
+        public function registerShortcodes()
+        {   
+            // Register the shortcode 
+            add_shortcode('crud_project_post', function ($args) {
+              
+                $args = shortcode_atts(array(
+                    'id'   => '',
+                ), $args);
+
+                if (!$args['id']) {
+                    return;
+                }
+
+                $builder = new \CrudProject\Classes\Builder\Render(); 
+                return $builder->render($args['id']);
+            });
+        }
     }
 
     add_action('plugins_loaded', function () {
@@ -89,7 +121,7 @@ if (!defined('CRUDPROJECT_VERSION')) {
     });
 
     register_activation_hook(__FILE__, function ($newWorkWide) {
-        require_once(CRUDPROJECT_DIR . 'includes/Classes/Activator.php');
+        //require_once(CRUDPROJECT_DIR . 'includes/Classes/Activator.php');
         $activator = new \CrudProject\Classes\Activator();
         $activator->migrateDatabases($newWorkWide);
     });

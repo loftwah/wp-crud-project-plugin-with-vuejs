@@ -1,11 +1,9 @@
 <template>
    <div class="allposts-wraper">
-
         <div class="crud-project-header"> 
             <div class="title">
                 <h1> All Posts </h1>
             </div>
-
             <div class="crud-project-action">
                 <div class="crud-search"> 
                     <el-input @keyup.enter.native="fetchPosts()" placeholder="search" v-model="search" size="small">
@@ -19,23 +17,19 @@
                 </div>
             </div>
         </div>
-
         <el-table :data="tableData" border style="width: 100%;">
-
             <el-table-column label="ID" width="60">
                 <template slot-scope="scope">
                     <p> {{scope.row.ID}} </p>
                 </template>
             </el-table-column>
-           
-            <el-table-column  label="Title">
+           <el-table-column  label="Title">
                 <template slot-scope="scope">
                     <router-link :to="{path: '/edit_Post/'+ scope.row.ID, params:{id: scope.row.ID } }">
                         {{scope.row.post_title}}
                     </router-link>
                 </template>
             </el-table-column>
-
             <el-table-column label="Description">
                 <template slot-scope="scope"> 
                     <p> {{scope.row.post_content}} </p>
@@ -53,45 +47,25 @@
                         </code>
                     </el-tooltip>
                 </template>
-
-
-                <!-- <el-table-column width="250" :label="$t('ShortCode')">
-                        <template slot-scope="scope">
-                            <el-tooltip effect="dark"
-                                        content="Click to copy shortcode"
-                                        title="Click to copy shortcode"
-                                        placement="top">
-                                <code class="copy"
-                                      :data-clipboard-text='`[wppayform id="${scope.row.ID}"]`'>
-                                    <i class="el-icon-document"></i> [wppayform id="{{ scope.row.ID }}"]
-                                </code>
-                            </el-tooltip>
-                        </template>
-                    </el-table-column> -->
-
-
             </el-table-column>
 
             <el-table-column prop="date" label="Date"> 
                 <template slot-scope="scope">
                     <p> {{scope.row.post_date}}</p>
                 </template>
-
             </el-table-column>
-
-
-
             <el-table-column label="Action"> 
                 <template slot-scope="scope">
                     <router-link title="Edit" :to="{ path: '/edit_Post/'+ scope.row.ID,  params:{id: scope.row.ID } }" class="el-button el-button--primary is-circle">
                         <i class="el-icon-edit"></i>
                     </router-link>
-                    <el-button type="success" icon="el-icon-edit" circle></el-button>
-                    <el-button type="danger" icon="el-icon-delete" circle @click="showModal(scope.row)"></el-button>
+                     <a :href="scope.row.preview_url" target="_blank" class="el-button el-button--success is-circle">
+                         <i class="el-icon-edit"></i>
+                     </a>
+                     <el-button type="danger" icon="el-icon-delete" circle @click="showModal(scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
-        
         <div class="crud-pagination">
             <el-pagination
                 @size-change="handleSizeChange"
@@ -123,9 +97,7 @@
                 <el-button type="primary" @click="deletePost(activeID)">Confirm</el-button>
             </span>
         </el-dialog>       
-                
-
-   </div>
+    </div>
 </template>
 
 
@@ -138,23 +110,16 @@
 
     data() {
       return {
-        tableData: [],
-        dialogVisible: false,
-        activeID: null,
-        activeTitle: "",
-        search: '',
-        total: 0,
-        pageSizes: [10, 20, 30, 40, 50, 100, 200],
-        per_page: 10,
-        page_number: 1,
-
-        // pagination
-        currentPage1: 5,
-        currentPage2: 5,
-        currentPage3: 5,
-        currentPage4: 4
-
-      }
+            tableData: [],
+            dialogVisible: false,
+            activeID: null,
+            activeTitle: "",
+            search: '',
+            total: 0,
+            pageSizes: [10, 20, 30, 40, 50, 100, 200],
+            per_page: 10,
+            page_number: 1,
+        }
     },
 
 
@@ -169,7 +134,6 @@
             .then(response => {
                 this.tableData = response.data.posts;
                 this.total     = response.data.total; 
-                console.log(response.data);
             })
             .fail(error => {
                 console.log(error);
@@ -185,7 +149,6 @@
             
         },
         deletePost(id){
-            console.log(id);
           this.$adminPost({
               route: "delete_post",
               post_id: id
@@ -203,9 +166,6 @@
           .fail(error => {
               console.log(error);
           })
-
-
-
         },
 
         // pagination
@@ -223,7 +183,6 @@
 
     mounted() {
         this.fetchPosts();
-
         var clipboard = new Clipboard('.shortcode');
         clipboard.on('success', (e) => {
             this.$message({
@@ -233,9 +192,7 @@
         });
     }
 
-
-
-  }
+}
 </script>
 
 <style scoped>
