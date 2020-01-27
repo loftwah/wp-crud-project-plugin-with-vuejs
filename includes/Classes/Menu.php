@@ -67,6 +67,9 @@ class Menu
             // 3rd party developers can now add their scripts here
             do_action('crud_project/booting_admin_app');
 
+            // admin css (icon)
+            wp_enqueue_style('crud-project-admin-css', CRUDPROJECT_URL.'assets/css/crud-project-admin.css');
+
             $pluginNameAdminVars = apply_filters('crud_project/admin_app_vars',array(
                 // 'image_upload_url' => admin_url('admin-ajax.php?action=wpf_global_settings_handler&route=wpf_upload_image'),
                 'assets_url' => CRUDPROJECT_URL.'assets/',

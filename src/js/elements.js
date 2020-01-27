@@ -115,23 +115,4 @@ Vue.prototype.$notify = Notification;
 
 locale.use(lang);
 
-import 'element-ui/lib/theme-chalk/index.css';
-import 'element-ui/lib/theme-chalk/table.css';
-import 'element-ui/lib/theme-chalk/table-column.css';
-import 'element-ui/lib/theme-chalk/divider.css';
-import 'element-ui/lib/theme-chalk/button.css';
-import 'element-ui/lib/theme-chalk/icon.css';
-import 'element-ui/lib/theme-chalk/container.css';
-import 'element-ui/lib/theme-chalk/row.css';
-import 'element-ui/lib/theme-chalk/col.css';
-import 'element-ui/lib/theme-chalk/input.css';
-import 'element-ui/lib/theme-chalk/checkbox.css';
-import 'element-ui/lib/theme-chalk/checkbox-group.css';
-import 'element-ui/lib/theme-chalk/message.css';
-import 'element-ui/lib/theme-chalk/message-box.css';
-import 'element-ui/lib/theme-chalk/popover.css';
-import 'element-ui/lib/theme-chalk/dialog.css';
-import 'element-ui/lib/theme-chalk/pagination.css';
-import 'element-ui/lib/theme-chalk/tooltip.css';
-
 export default Vue;

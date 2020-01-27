@@ -60,7 +60,7 @@
                         <i class="el-icon-edit"></i>
                     </router-link>
                      <a :href="scope.row.preview_url" target="_blank" class="el-button el-button--success is-circle">
-                         <i class="el-icon-edit"></i>
+                         <i class="el-icon-view"></i>
                      </a>
                      <el-button type="danger" icon="el-icon-delete" circle @click="showModal(scope.row)"></el-button>
                 </template>
