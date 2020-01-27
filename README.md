@@ -1,6 +1,6 @@
-# wp-boilerplate-plugin-with-vuejs
+# WP CRUD Project With vue 
 
-#### A simple boilerplate plugin for WordPress using vue js.
+#### A simple CRUD plugin for WordPress using vue js.
 
 
 ## How to use:
@@ -18,11 +18,11 @@
 
 * Open with an IDE (Vscode, sublime, PhpStorm etc)
 
-* Change all the   `crud_project` to Your-Plugin-Name 
-* Change all the   `CRUDPROJECT`  to YOURCRUDPROJECT    (Upper case)
-* Change all the   `CrudProject`  to YourCrudProject    (Upper Camel Case)
-* Change all the   `Crud_Project` to your_crud_project
-* Change all the   `crud_project`  to yourcrud_project
+* Change all the   `crud_project` to Your-plugin_name 
+* Change all the   `CRUDPROJECT`  to YOUR-PLUGINNAME    (Upper case)
+* Change all the   `CrudProject`  to Your-PluginName    (Upper Camel Case)
+* Change all the   `Crud_Project` to Your-Plugin_Name
+* Change all the   `crud_project`  to your-plugin_name
 
 
 ## All done have fun

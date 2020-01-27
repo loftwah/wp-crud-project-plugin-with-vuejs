@@ -2,11 +2,11 @@
 
 /*
 Plugin Name: CRUD Project
-Plugin URI: #
-Description: A WordPress boilerplate plugin with Vue js.
+Plugin URI: https://github.com/ruhel241/wp-crud-project-plugin-with-vuejs
+Description: A WordPress CRUD plugin with Vue js.
 Version: 1.0.0
-Author: #
-Author URI: #
+Author: Md.Ruhel Khan
+Author URI: https://github.com/ruhel241
 License: GPLv2 or later
 Text Domain: crud_project
 */
@@ -112,11 +112,11 @@ require CRUDPROJECT_DIR.'includes/autoload.php';
         (new CrudProject())->boot();
     });
 
-    register_activation_hook(__FILE__, function ($newWorkWide) {
-        //require_once(CRUDPROJECT_DIR . 'includes/Classes/Activator.php');
-        $activator = new \CrudProject\Classes\Activator();
-        $activator->migrateDatabases($newWorkWide);
-    });
+    // register_activation_hook(__FILE__, function ($newWorkWide) {
+    //     //require_once(CRUDPROJECT_DIR . 'includes/Classes/Activator.php');
+    //     $activator = new \CrudProject\Classes\Activator();
+    //     $activator->migrateDatabases($newWorkWide);
+    // });
 
 } else {
     add_action('admin_init', function () {
