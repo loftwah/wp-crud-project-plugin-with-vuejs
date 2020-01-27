@@ -122,10 +122,10 @@ __webpack_require__.r(__webpack_exports__);
     setTopmenu: function setTopmenu() {
       this.topMenus = this.applyFilters('crud_project_top_level_menu', [{
         route: 'all_posts',
-        title: 'AllPosts'
+        title: 'All Posts'
       }, {
         route: 'add_new_post',
-        title: 'AddNewPost'
+        title: 'Add New Post'
       } //   {
       //       route: 'dashboard',
       //       title: 'Dashboard'

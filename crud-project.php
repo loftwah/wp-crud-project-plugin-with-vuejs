@@ -70,15 +70,7 @@ require CRUDPROJECT_DIR.'includes/autoload.php';
             // load AdminAjaxHandler
             $ajaxHandler = new \CrudProject\Classes\AdminAjaxHandler();
             $ajaxHandler->registerEndpoints();
-
-          
-            wp_enqueue_script(
-                'crud_project_vue_loaded',
-                CRUDPROJECT_URL . 'assets/js/boot.js',
-                array( 'jquery' ),
-                CRUDPROJECT_VERSION,
-                true
-            );
+             
         }
 
         public function textDomain()

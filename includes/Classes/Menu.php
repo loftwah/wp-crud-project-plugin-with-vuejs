@@ -20,6 +20,7 @@ class Menu
 
         $title = __('Crud Project', 'crud_project');
         global $submenu;
+       
         add_menu_page(
             $title,
             $title,
@@ -30,21 +31,22 @@ class Menu
             25
         );
 
-        $submenu['crud_project']['my_profile'] = array(
-            __('Plugin Dashboard', 'crud_project'),
+        $submenu['crud_project']['all_posts'] = array(
+            __('All Posts', 'crud_project'),
             $menuPermission,
             'admin.php?page=crud_project#/',
         );
-        $submenu['crud_project']['settings'] = array(
-            __('Settings', 'crud_project'),
+        $submenu['crud_project']['add_new_post'] = array(
+            __('Add New Post', 'crud_project'),
             $menuPermission,
-            'admin.php?page=crud_project#/settings',
+            'admin.php?page=crud_project#/add_new_post',
         );
-        $submenu['crud_project']['supports'] = array(
-            __('Supports', 'crud_project'),
-            $menuPermission,
-            'admin.php?page=crud_project#/supports',
-        );
+        // $submenu['crud_project']['supports'] = array(
+        //     __('Supports', 'crud_project'),
+        //     $menuPermission,
+        //     'admin.php?page=crud_project#/supports',
+        // );
+        
     }
 
     public function render() {
@@ -64,8 +66,6 @@ class Menu
             wp_enqueue_script('crud_project_boot', CRUDPROJECT_URL.'assets/js/boot.js', array('jquery'), CRUDPROJECT_VERSION, true);
             // 3rd party developers can now add their scripts here
             do_action('crud_project/booting_admin_app');
-            wp_enqueue_script('crud_project_admin_app', CRUDPROJECT_URL.'assets/js/crud_project.js', array('wppayform_boot'), CRUDPROJECT_VERSION, true);
-            // wp_enqueue_style('crud_project_admin_app', CRUDPROJECT_URL.'assets/css/crud_project-admin.css', array(), CRUDPROJECT_VERSION);
 
             $pluginNameAdminVars = apply_filters('crud_project/admin_app_vars',array(
                 // 'image_upload_url' => admin_url('admin-ajax.php?action=wpf_global_settings_handler&route=wpf_upload_image'),

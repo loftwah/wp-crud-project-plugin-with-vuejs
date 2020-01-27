@@ -27,11 +27,11 @@
               this.topMenus = this.applyFilters('crud_project_top_level_menu', [
                   {
                       route: 'all_posts',
-                      title: 'AllPosts' 
+                      title: 'All Posts' 
                   },
                   {
                       route: 'add_new_post',
-                      title: 'AddNewPost' 
+                      title: 'Add New Post' 
                   },
                   
                 //   {
