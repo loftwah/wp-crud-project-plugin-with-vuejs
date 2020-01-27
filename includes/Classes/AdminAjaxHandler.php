@@ -32,8 +32,6 @@ class AdminAjaxHandler
             'update_post'   => 'updatePost',
             'create_post'   => 'createPost',
             'delete_post'   => 'deletePost',
-            //'get_post'      => 'getPost'
- 
         );
         if (isset($validRoutes[$route])) {
             do_action('crud_project/doing_ajax_events_' . $route);
@@ -71,22 +69,6 @@ class AdminAjaxHandler
         ), 200);
 
     }
-
-    // frontend 
-    // protected function getPostPreview($postId)
-    // {
-    //     dd($postId);
-        
-    //     $postId = absint($_REQUEST['post_id']);
-    //     $post = Posts::getPostDB($postId);
-
-    //     wp_send_json_success(array(
-    //         'post' => $post
-    //     ), 200);
-    // }
-
-
-
 
     // update post
     protected function updatePost(){
@@ -165,6 +147,5 @@ class AdminAjaxHandler
         ), 200);
     }
 
-
-    
+ 
 }

@@ -41,11 +41,13 @@ class Posts
         }
 
         $posts =  $postsQuery->get();
+       
         $total = $postsQuery->count();
        
         // frontend Preview link
         foreach ($posts as $post) {
             $post->preview_url = site_url('?wp_crudproject_preview=' . $post->ID);
+            $post->post_content = wp_strip_all_tags($post->post_content);
         }
 
         $posts = apply_filters('crudproject/get_all_posts', $posts);

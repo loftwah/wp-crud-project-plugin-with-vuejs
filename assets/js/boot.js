@@ -78332,8 +78332,8 @@ element_ui_lib_locale__WEBPACK_IMPORTED_MODULE_2___default.a.use(element_ui_lib_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/crud-project-plugin-with-vuejs/src/js/boot.js */"./src/js/boot.js");
-module.exports = __webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/crud-project-plugin-with-vuejs/src/scss/admin/app.scss */"./src/scss/admin/app.scss");
+__webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/wp-crud-project-plugin-with-vuejs/src/js/boot.js */"./src/js/boot.js");
+module.exports = __webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/wp-crud-project-plugin-with-vuejs/src/scss/admin/app.scss */"./src/scss/admin/app.scss");
 
 
 /***/ })

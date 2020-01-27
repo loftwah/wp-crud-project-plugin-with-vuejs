@@ -1,4 +1,4 @@
-# WP CRUD Project With vue 
+# WP CRUD Project With Vue 
 
 #### A simple CRUD plugin for WordPress using vue js.
 
@@ -22,7 +22,6 @@
 * Change all the   `CRUDPROJECT`  to YOUR-PLUGINNAME    (Upper case)
 * Change all the   `CrudProject`  to Your-PluginName    (Upper Camel Case)
 * Change all the   `Crud_Project` to Your-Plugin_Name
-* Change all the   `crud_project`  to your-plugin_name
 
 
 ## All done have fun

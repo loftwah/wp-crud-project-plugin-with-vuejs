@@ -221,8 +221,6 @@ __webpack_require__.r(__webpack_exports__);
           message: 'Post successfully Created',
           type: 'success'
         });
-
-        console.log(response.data.post_id);
       }).fail(function (error) {
         console.log(error);
       });
@@ -313,7 +311,7 @@ __webpack_require__.r(__webpack_exports__);
         route: 'edit_post',
         post_id: this.$route.params.id
       }).then(function (response) {
-        _this.post = response.data.post; // console.log(this.$route.params.id);
+        _this.post = response.data.post;
       }).fail(function (error) {
         console.log(error);
       });
@@ -544,7 +542,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     showModal: function showModal(data) {
-      console.log(data);
       this.activeID = data.ID;
       this.activeTitle = data.post_title;
       this.dialogVisible = true;
@@ -574,12 +571,10 @@ __webpack_require__.r(__webpack_exports__);
     handleSizeChange: function handleSizeChange(val) {
       this.per_page = val;
       this.fetchPosts();
-      console.log("".concat(val, " items per page"));
     },
     handleCurrentChange: function handleCurrentChange(val) {
       this.page_number = val;
       this.fetchPosts();
-      console.log("current page: ".concat(val));
     }
   },
   mounted: function mounted() {
@@ -3970,7 +3965,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/crud-project-plugin-with-vuejs/src/js/main.js */"./src/js/main.js");
+module.exports = __webpack_require__(/*! /Users/zoos/Downloads/sites/wp/wp-content/plugins/wp-crud-project-plugin-with-vuejs/src/js/main.js */"./src/js/main.js");
 
 
 /***/ })

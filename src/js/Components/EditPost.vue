@@ -51,7 +51,6 @@ export default {
             })
             .then(response => {
                 this.post = response.data.post;
-                // console.log(this.$route.params.id);
             })
             .fail( error => {
                  console.log(error);

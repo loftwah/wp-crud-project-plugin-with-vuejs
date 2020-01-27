@@ -58,7 +58,6 @@ export default {
                     message: 'Post successfully Created',
                     type: 'success'
                 });
-                console.log(response.data.post_id);
             })
             .fail(error => {
                 console.log(error);

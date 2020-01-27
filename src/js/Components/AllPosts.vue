@@ -142,7 +142,6 @@
                   
         },
         showModal(data){
-            console.log(data);
             this.activeID = data.ID;
             this.activeTitle = data.post_title
             this.dialogVisible = true
@@ -172,12 +171,10 @@
         handleSizeChange(val) {
             this.per_page = val;
             this.fetchPosts();
-            console.log(`${val} items per page`);
         },
         handleCurrentChange(val) {
             this.page_number = val;
             this.fetchPosts();
-            console.log(`current page: ${val}`);
         }
     },
 
