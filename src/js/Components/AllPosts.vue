@@ -227,4 +227,11 @@
 .shortcode{
     cursor: context-menu;
 }
+
+.el-button, a {
+    text-decoration: none;
+}
+
+
+
 </style>

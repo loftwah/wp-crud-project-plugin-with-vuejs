@@ -46,8 +46,9 @@ class Posts
        
         // frontend Preview link
         foreach ($posts as $post) {
-            $post->preview_url = site_url('?wp_crudproject_preview=' . $post->ID);
-            $post->post_content = wp_strip_all_tags($post->post_content);
+            $post->preview_url  = site_url('?wp_crudproject_preview=' . $post->ID);
+            $postContent        = wp_strip_all_tags($post->post_content);
+            $post->post_content = wp_trim_words( $postContent, 20, '...' );
         }
 
         $posts = apply_filters('crudproject/get_all_posts', $posts);
